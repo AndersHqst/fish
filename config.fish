@@ -1,3 +1,9 @@
+#
+#	TODO scripts
+#   Open derived data folder for (possibly open) project
+#   Shortcuts for ex opening apache, xcode derived, xcode, whatever,
+#
+
 # Key repeat speed
 defaults write NSGlobalDomain KeyRepeat -int 0
 
@@ -8,12 +14,12 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias  l='ls -CF'
 
-function ld
-    cd $argv[1]
-    l
-end
+#function ld
+#    cd $argv[1]
+#    l
+#end
 
-# Find word script. Takes a word and possibly a second -c for case insentive compare
+# Find word script. Takes a word and possibly a second -c for case insentive comparessh-add -l
 function find_word
 	python ~/.config/fish/find_word.py $argv
 end
@@ -56,14 +62,38 @@ alias GP='git push'
 alias gc='git commit'
 alias gco='git checkout'
 
+# Macports
+function port
+    /opt/local/bin/port $argv
+end
 
 # Sublime Text
 function subl
     /Applications/Sublime\ Text.app/Contents//SharedSupport/bin/subl $argv
 end
 
+# Tower
+function tower
+    /Applications/Tower.app/Contents/MacOS/gittower $argv
+end
 
-# anaconda
-set -x PATH ~/anaconda/bin $PATH
+#postgres
+set -x PATH /usr//local/Cellar/postgresql/9.3.4/bin/ $PATH
 
+# Firefox
+function firefox
+    /Applications/Firefox.app/Contents/MacOS/firefox $argv
+end
 
+# Anaconda
+set -x LC_ALL en_US.UTF-8
+set -x LANGen_US.UTF-8
+
+function conda
+    /Users/ahkj/anaconda/bin/conda $argv
+end
+
+# FileMerge
+function filemerge
+    /Applications/Xcode6-Beta.app/Contents/Applications/FileMerge.app/Contents/MacOS/FileMerge
+end
