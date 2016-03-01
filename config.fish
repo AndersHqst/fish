@@ -52,6 +52,10 @@ set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
 set -g __fish_git_prompt_color_cleanstate green bold
 
+# Virtualfish
+# http://virtualfish.readthedocs.org/en/latest/install.html#customizing-your-fish-prompt
+eval (python -m virtualfish)
+
 # git aliases
 alias gs='git status -s'
 alias gd='git diff -b --color'
@@ -70,6 +74,11 @@ end
 # Sublime Text
 function subl
     /Applications/Sublime\ Text.app/Contents//SharedSupport/bin/subl $argv
+end
+
+#PyCharm
+function pycharm
+    /Applications/PyCharm.app/Contents/MacOS/pycharm $argv
 end
 
 # Tower
@@ -91,6 +100,11 @@ set -x LANGen_US.UTF-8
 
 function conda
     /Users/ahkj/anaconda/bin/conda $argv
+end
+
+# pypy
+function pypy
+    /Users/ahkj/pypy-2.4.0-osx64/bin/pypy $argv
 end
 
 # FileMerge
