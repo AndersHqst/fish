@@ -28,7 +28,7 @@ def find_word_in_directory(word, case_insensitive, recursive=True, root='.'):
 	for filenname in os.listdir(root):
 		file_path = os.path.join(root, filenname)
 		if os.path.isdir(file_path) and recursive:
-			find_word(word, case_insensitive, recursive, file_path)
+			find_word_in_directory(word, case_insensitive, recursive, file_path)
 		else:
 			find_word_in_file(word, file_path, case_insensitive)
 
