@@ -29,6 +29,12 @@ end
 #
 set -x PATH /usr/local/Cellar/git/2.0.0/bin $PATH
 
+# Swift 3.0
+set -x PATH /Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin $PATH
+
+# kotlins (Kotlin as scripting)
+set -x PATH ~/bin $PATH
+
 # Note: Modified version of 'Informative Git Prompt'
 # TODO: Do I want this?
 set -g __fish_git_prompt_show_informative_status 1
@@ -111,3 +117,6 @@ end
 function filemerge
     /Applications/Xcode6-Beta.app/Contents/Applications/FileMerge.app/Contents/MacOS/FileMerge
 end
+
+# Make sure ssh key is added
+# ssh-add ~/.ssh/id_rsa
