@@ -1,4 +1,7 @@
 WORD_INDEX_NOT_FOUND = -1 
+case_insensitive = False
+recursive = False
+print_found_line = False
 
 def find_word_index(text, word):
 	return text.index(word) if word in text else WORD_INDEX_NOT_FOUND
@@ -14,10 +17,10 @@ def find_word_in_file(word, file_path, case_insensitive):
 
 			if word_index != WORD_INDEX_NOT_FOUND:
 				print("Found " + word + " in line " + str(line_number) + " in " + file_path)
-				cased_word = line[word_index: word_index + len(word)]									
-				output = line.replace(cased_word, '\033[44;33m{}\033[m'.format(cased_word))
-				print(output)
-				print("")
+				if print_found_line:
+					cased_word = line[word_index: word_index + len(word)]									
+					output = line.replace(cased_word, '\033[44;33m{}\033[m'.format(cased_word))
+					print(output)				
 				
 	except IOError, ioe:
 		pass
@@ -48,6 +51,7 @@ if __name__ == '__main__':
 	args = argv[2:]
 	case_insensitive = '-c' in args
 	recursive = '-r' in args
+	print_found_line = '-l' in args
 
 	if '-f' in argv:
 		index = int(argv.index('-f'))
